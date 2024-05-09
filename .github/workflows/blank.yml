@@ -28,7 +28,7 @@ jobs:
           script: |
             const runId = '${{ steps.trigger-java-ci.outputs.run_id }}'
             const repo = 'souravdasbitm/JavaSeleniumRestAssured'
-            const octokit = github.getOctokit(${{ secrets.PAT }})
+            const octokit = github.getOctokit(github-token)
             const status = await octokit.actions.getWorkflowRun({
               owner: context.repo.owner,
               repo: repo,
