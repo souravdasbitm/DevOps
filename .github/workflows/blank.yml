@@ -2,9 +2,9 @@ name: Call WorkFlow
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   repository_dispatch:
     types: [trigger-maven-build]
   workflow_dispatch:
@@ -27,14 +27,9 @@ jobs:
         with:
           github-token: ${{ secrets.PAT }}
           script: |
-            try {
-              const response = await github.actions.getWorkflowRun({
-                owner: 'souravdasbitm',
-                repo: 'JavaSeleniumRestAssured',
-                run_id: ${{ steps.trigger-java-ci.outputs.run_id }}
-              });
-              console.log(response.data.status);
-            } catch (error) {
-              console.error(error.message);
-              process.exit(1);
-            }
+            const response = await github.actions.getWorkflowRun({
+              owner: 'souravdasbitm',
+              repo: 'JavaSeleniumRestAssured',
+              run_id: ${{ steps.trigger-java-ci.outputs.run_id }}
+            });
+            console.log(response.data.status);
