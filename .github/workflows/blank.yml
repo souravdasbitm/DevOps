@@ -26,7 +26,6 @@ jobs:
         with:
           github-token: ${{ secrets.PAT }}
           script: |
-            const github = require('@actions/github')
             const runId = '${{ steps.trigger-java-ci.outputs.run_id }}'
             const repo = 'ouravdasbitm/JavaSeleniumRestAssured'
             const octokit = github.getOctokit(token)
