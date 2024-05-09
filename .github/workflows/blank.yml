@@ -28,7 +28,7 @@ jobs:
           github-token: ${{ secrets.PAT }}
           script: |
             const response = await github.actions.getWorkflowRun({
-              owner: 'souravdasbitm', // Replace with the owner of the repository
+              owner: 'souravdasbitm',
               repo: 'JavaSeleniumRestAssured',
               run_id: ${{ steps.trigger-java-ci.outputs.run_id }}
             });
